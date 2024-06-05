@@ -8,6 +8,11 @@
  - [Recording provenance of workflow runs with RO-Crate](https://doi.org/10.48550/arXiv.2312.07852)
  - [RO-Crate Tutorial](https://www.researchobject.org/packaging_data_with_ro-crate/01-introduction/index.html)
  - [Presentation about RO-Crate](https://gallantries.github.io/video-library/videos/ro-crates/intro/slides/)
+ - [Shared metadata for data-centric materials science](https://doi.org/10.1038/s41597-023-02501-8)
+ - [The role of metadata in reproducible computational research](202404011304-role-of-metadata.md)
+ - [The Semantic Data Dictionary](https://doi.org/10.1162/dint_a_00058)
+ - [The Materials Cloud Platform](https://doi.org/10.1038/s41597-020-00637-5)
+ - [Recording provenance of workflow runs with RO-Crate](https://doi.org/10.48550/arXiv.2312.07852)
  
 ## CTCMS Help
 
