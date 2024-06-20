@@ -1,0 +1,69 @@
+{
+    "@context": "https://w3id.org/ro/crate/1.1/context",
+    "@graph": [
+        {
+            "@id": "./",
+            "@type": "Dataset",
+            "datePublished": "2024-06-20T14:55:01+00:00",
+            "description": "An example of generating an ro-crate from a PFHub result, for now this is only focused on the computational platform, environment and implementation",
+            "hasPart": [
+                {
+                    "@id": "pfhub.yaml"
+                },
+                {
+                    "@id": "free_energy_1a.csv"
+                }
+            ],
+            "license": {
+                "@id": "https://spdx.org/licenses/CC0-1.0"
+            },
+            "mainEntity": {
+                "@id": "https://schema.org/mainEntity"
+            },
+            "title": "PFHub title: fipy_1a_travis"
+        },
+        {
+            "@id": "ro-crate-metadata.json",
+            "@type": "CreativeWork",
+            "about": {
+                "@id": "./"
+            },
+            "conformsTo": {
+                "@id": "https://w3id.org/ro/crate/1.1"
+            }
+        },
+        {
+            "@id": "pfhub.yaml",
+            "@type": "File",
+            "encodingFormat": "text/yaml",
+            "name": "PFHub meta data file"
+        },
+        {
+            "@id": "free_energy_1a.csv",
+            "@type": "File",
+            "encodingFormat": "text/csv",
+            "name": "Free Energy"
+        },
+        {
+            "@id": "https://orcid.org/0000-0002-2653-7418",
+            "@type": "Person",
+            "affiliation": "NIST",
+            "name": "Daniel Wheeler"
+        },
+        {
+            "@id": "https://spdx.org/licenses/CC0-1.0",
+            "@type": "CreativeWork",
+            "author": {
+                "@id": "https://orcid.org/0000-0002-2653-7418"
+            },
+            "description": "Creative Commons Zero v1.0 Universal",
+            "name": "CC0-1.0",
+            "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+            "@id": "https://schema.org/mainEntity",
+            "@type": "mainEntity",
+            "url": "https://schema.org/mainEntity"
+        }
+    ]
+}
