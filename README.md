@@ -32,8 +32,8 @@
 2) Run the following:
 
 ```
-$ eval "$(micromamba shell hook -s ${SHELL})"
-$ micromamba create -n bm8-env python=3.10 poetry
+$ eval "$(micromamba shell hook -s bashx)"
+$ micromamba create -n bm8-env python=3.11 poetry=1.8.2
 $ micromamba activate bm8-env
 ```
 3) Run `poetry install` from the `benchmark8` directory
