@@ -24,3 +24,30 @@
 
 - https://asistdl.onlinelibrary.wiley.com/doi/10.1002/asi.24744
 - [ir_metadata](https://www.ir-metadata.org)
+
+## Installation and Run Instructions
+
+1) [Install Micromamba](https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html)
+
+2) Run the following:
+
+```
+$ eval "$(micromamba shell hook -s bashx)"
+$ micromamba create -n bm8-env python=3.11 poetry=1.8.2
+$ micromamba activate bm8-env
+```
+3) Run `poetry install` from the `benchmark8` directory
+
+4) Test that the python simulation runs with 
+
+```
+$ cd benchmark8
+$ python benchmark8a.py params8a.yaml`
+```
+
+5) Test that the ro-crate build works
+
+```
+$ cd example
+$ python build_rocrate.py
+```
