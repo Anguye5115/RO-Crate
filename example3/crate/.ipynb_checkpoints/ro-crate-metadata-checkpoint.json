@@ -1,0 +1,36 @@
+{
+    "@context": "https://w3id.org/ro/crate/1.1/context",
+    "@graph": [
+        {
+            "@id": "./",
+            "@type": "Dataset",
+            "creator": {
+                "@id": "https://orcid.org/0000-0000-0000-0000"
+            },
+            "datePublished": "2024-06-26T18:45:10+00:00",
+            "description": "This RO-Crate includes a Frictionless schema.",
+            "hasPart": [
+                {
+                    "@id": "schema.json"
+                }
+            ],
+            "name": "Example RO-Crate"
+        },
+        {
+            "@id": "ro-crate-metadata.json",
+            "@type": "CreativeWork",
+            "about": {
+                "@id": "./"
+            },
+            "conformsTo": {
+                "@id": "https://w3id.org/ro/crate/1.1"
+            }
+        },
+        {
+            "@id": "schema.json",
+            "@type": "File",
+            "encodingFormat": "application/json",
+            "name": "Schema"
+        }
+    ]
+}
