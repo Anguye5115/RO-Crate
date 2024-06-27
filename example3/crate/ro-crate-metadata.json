@@ -7,9 +7,12 @@
             "creator": {
                 "@id": "https://orcid.org/0000-0000-0000-0000"
             },
-            "datePublished": "2024-06-26T18:46:07+00:00",
+            "datePublished": "2024-06-27T15:44:04+00:00",
             "description": "This RO-Crate includes a Frictionless schema.",
             "hasPart": [
+                {
+                    "@id": "rocrate_schema.json"
+                },
                 {
                     "@id": "schema.json"
                 }
@@ -25,6 +28,12 @@
             "conformsTo": {
                 "@id": "https://w3id.org/ro/crate/1.1"
             }
+        },
+        {
+            "@id": "rocrate_schema.json",
+            "@type": "File",
+            "encodingFormat": "application/json",
+            "name": "Rocrate Schema"
         },
         {
             "@id": "schema.json",

@@ -16,12 +16,23 @@
       "creator": {
         "@id": "https://orcid.org/0000-0000-0000-0000"
       },
-      "datePublished": "2024-06-26T18:46:07+00:00",
+      "datePublished": "2024-06-27T15:44:04+00:00",
       "description": "This RO-Crate includes a Frictionless schema.",
-      "hasPart": {
-        "@id": "schema.json"
-      },
+      "hasPart": [
+        {
+          "@id": "rocrate_schema.json"
+        },
+        {
+          "@id": "schema.json"
+        }
+      ],
       "name": "Example RO-Crate"
+    },
+    {
+      "@id": "rocrate_schema.json",
+      "@type": "File",
+      "encodingFormat": "application/json",
+      "name": "Rocrate Schema"
     },
     {
       "@id": "schema.json",
@@ -111,13 +122,17 @@ table.table {
             <td style='text-align:left'><span>This RO-Crate includes a Frictionless schema.</span></td>
             </tr><tr>
             <th style="text-align:left;" class="prop">datePublished<span>&nbsp;</span><a href="http://schema.org/datePublished">[?]</a></th>
-            <td style='text-align:left'><span>2024-06-26T18:46:07+00:00</span></td>
+            <td style='text-align:left'><span>2024-06-27T15:44:04+00:00</span></td>
             </tr><tr>
             <th style="text-align:left;" class="prop">creator<span>&nbsp;</span><a href="http://schema.org/creator">[?]</a></th>
             <td style='text-align:left'><a href="https://orcid.org/0000-0000-0000-0000">https://orcid.org/0000-0000-0000-0000</a></td>
             </tr><tr>
             <th style="text-align:left;" class="prop">hasPart<span>&nbsp;</span><a href="http://schema.org/hasPart">[?]</a></th>
-            <td style='text-align:left'><a href="#schema.json">Schema</a></td>
+            <td style='text-align:left'><ul>
+                        <li><a href="#rocrate_schema.json">Rocrate Schema</a></li>
+                        
+                        <li><a href="#schema.json">Schema</a></li>
+                        </ul></td>
             </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
             <th style="text-align:left;" class="prop">about<span>&nbsp;</span><a href="http://schema.org/about">[?]</a></th>
             <td style='text-align:left'><a href="#ro-crate-metadata.json">ro-crate-metadata.json</a></td>
@@ -126,6 +141,35 @@ table.table {
         </div>
             </div>
         <hr/><br/><br/><hr/><br/><br/>
+            <div>
+                <h3><a href="rocrate_schema.json">⬇️ Download: </a> Rocrate Schema</h3>
+                
+                
+                
+                
+        <div id="rocrate_schema.json">
+            
+            <table class="table metadata table-striped" >
+                <tbody><tr>
+            <th style="text-align:left;" class="prop">@id</th>
+            <td style='text-align:left'><span>rocrate_schema.json</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">name<span>&nbsp;</span><a href="http://schema.org/name">[?]</a></th>
+            <td style='text-align:left'><span>Rocrate Schema</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">@type</th>
+            <td style='text-align:left'><span>File</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">encodingFormat<span>&nbsp;</span><a href="http://schema.org/encodingFormat">[?]</a></th>
+            <td style='text-align:left'><span>application/json</span></td>
+            </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
+            <th style="text-align:left;" class="prop">hasPart<span>&nbsp;</span><a href="http://schema.org/hasPart">[?]</a></th>
+            <td style='text-align:left'><a href="#./">Example RO-Crate</a></td>
+            </tr></tbody>
+            </table>
+        </div>
+            </div>
+        <hr/><br/><br/>
             <div>
                 <h3><a href="schema.json">⬇️ Download: </a> Schema</h3>
                 
