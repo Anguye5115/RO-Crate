@@ -6,4 +6,4 @@
 (6/24/24) - Looked into the Frictionless python library and created a Frictionless demo outside of an RO-Crate  
 (6/25/24) - Began to develop an RO-Crate with Frictionless  
 (6/26/24) - Wrote abstract proposal and presented Frictionless demo at PF meeting  
-(6/28/24) - Successfully incorporated column headers into crate description
+(6/28/24) - Successfully incorporated column headers into crate description  
