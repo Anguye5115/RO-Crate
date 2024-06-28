@@ -1,0 +1,12 @@
+{
+  "fields": [
+    {
+      "name": "@context",
+      "type": "string"
+    },
+    {
+      "name": "@graph",
+      "type": "array"
+    }
+  ]
+}

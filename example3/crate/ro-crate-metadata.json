@@ -1,0 +1,57 @@
+{
+    "@context": "https://w3id.org/ro/crate/1.1/context",
+    "@graph": [
+        {
+            "@id": "./",
+            "@type": "Dataset",
+            "datePublished": "2024-06-28T13:59:06+00:00",
+            "description": "This RO-Crate includes a Frictionless schema.",
+            "hasPart": [
+                {
+                    "@id": "rocrate_schema.json"
+                },
+                {
+                    "@id": "pfhub.yaml"
+                },
+                {
+                    "@id": "free_energy_1a.csv"
+                }
+            ],
+            "license": "https://spdx.org/licenses/CC0-1.0",
+            "name": "Example RO-Crate"
+        },
+        {
+            "@id": "ro-crate-metadata.json",
+            "@type": "CreativeWork",
+            "about": {
+                "@id": "./"
+            },
+            "conformsTo": {
+                "@id": "https://w3id.org/ro/crate/1.1"
+            }
+        },
+        {
+            "@id": "rocrate_schema.json",
+            "@type": "File",
+            "encodingFormat": "application/json",
+            "name": "Rocrate Schema"
+        },
+        {
+            "@id": "pfhub.yaml",
+            "@type": "File",
+            "encodingFormat": "text/yaml",
+            "name": "PFHub meta data file"
+        },
+        {
+            "@id": "free_energy_1a.csv",
+            "@type": "File",
+            "column_header": [
+                "x",
+                "y",
+                "data_set"
+            ],
+            "encodingFormat": "text/csv",
+            "name": "Free Energy"
+        }
+    ]
+}
