@@ -4,23 +4,20 @@
         {
             "@id": "./",
             "@type": "Dataset",
-            "datePublished": "2024-06-28T13:59:06+00:00",
-            "description": "This RO-Crate includes a Frictionless schema.",
+            "datePublished": "2024-07-05T06:01:09+00:00",
             "hasPart": [
-                {
-                    "@id": "rocrate_schema.json"
-                },
-                {
-                    "@id": "pfhub.yaml"
-                },
                 {
                     "@id": "free_energy_1a.csv"
                 }
-            ],
-            "license": "https://spdx.org/licenses/CC0-1.0",
-            "name": "Example RO-Crate"
+            ]
         },
         {
+            "@context": {
+                "@id": "https://example.org/vocab#column_header",
+                "@type": "@id",
+                "rdfs:comment": "Represents the header of a column in a dataset.",
+                "rdfs:label": "Column Header"
+            },
             "@id": "ro-crate-metadata.json",
             "@type": "CreativeWork",
             "about": {
@@ -31,27 +28,10 @@
             }
         },
         {
-            "@id": "rocrate_schema.json",
-            "@type": "File",
-            "encodingFormat": "application/json",
-            "name": "Rocrate Schema"
-        },
-        {
-            "@id": "pfhub.yaml",
-            "@type": "File",
-            "encodingFormat": "text/yaml",
-            "name": "PFHub meta data file"
-        },
-        {
             "@id": "free_energy_1a.csv",
             "@type": "File",
-            "column_header": [
-                "x",
-                "y",
-                "data_set"
-            ],
-            "encodingFormat": "text/csv",
-            "name": "Free Energy"
+            "description": "Resource containing free energy measurements.",
+            "name": "Free Energy Dataset Resource"
         }
     ]
 }
