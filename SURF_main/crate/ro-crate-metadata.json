@@ -12,7 +12,7 @@
                     "@id": "https://orcid.org/0009-0008-2880-8403"
                 }
             ],
-            "datePublished": "2024-07-08T20:13:31+00:00",
+            "datePublished": "2024-07-08T20:52:23+00:00",
             "description": "An example of generating an ro-crate from a PFHub result, for now this is only focused on the computational platform, environment and implementation",
             "hasPart": [
                 {
@@ -42,12 +42,7 @@
             "@type": "File",
             "description": "Solid Fraction and Free Energy vs. Time",
             "encodingFormat": "text/tab-separated-values",
-            "name": "test",
-            "placeholder": [
-                "x",
-                "y",
-                "data_set"
-            ]
+            "name": "test"
         },
         {
             "@id": "https://orcid.org/0000-0002-2653-7418",
