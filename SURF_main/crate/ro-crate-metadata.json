@@ -12,7 +12,7 @@
                     "@id": "https://orcid.org/0009-0008-2880-8403"
                 }
             ],
-            "datePublished": "2024-07-08T20:52:23+00:00",
+            "datePublished": "2024-07-12T05:46:44+00:00",
             "description": "An example of generating an ro-crate from a PFHub result, for now this is only focused on the computational platform, environment and implementation",
             "hasPart": [
                 {
@@ -20,6 +20,9 @@
                 },
                 {
                     "@id": "https://github.com/usnistgov/FiPy-spinodal-decomposition-benchmark/blob/main/periodic/cahn-hilliard.py"
+                },
+                {
+                    "@id": "params8a.yaml"
                 }
             ],
             "license": {
@@ -85,6 +88,54 @@
             "url": {
                 "@id": "https://www.commonwl.org/"
             }
+        },
+        {
+            "@id": "params8a.yaml",
+            "@type": "File",
+            "encodingFormat": "text/yaml",
+            "name": "Parameter File"
+        },
+        {
+            "@id": "#Lx",
+            "@type": "Thing",
+            "name": "Lx",
+            "value": 100.0
+        },
+        {
+            "@id": "#Ly",
+            "@type": "Thing",
+            "name": "Ly",
+            "value": 100.0
+        },
+        {
+            "@id": "#dx",
+            "@type": "Thing",
+            "name": "dx",
+            "value": 0.4
+        },
+        {
+            "@id": "#checkpoint_interval",
+            "@type": "Thing",
+            "name": "checkpoint_interval",
+            "value": 1.0
+        },
+        {
+            "@id": "#totaltime",
+            "@type": "Thing",
+            "name": "totaltime",
+            "value": 200.0
+        },
+        {
+            "@id": "#dt",
+            "@type": "Thing",
+            "name": "dt",
+            "value": 0.01
+        },
+        {
+            "@id": "#factor",
+            "@type": "Thing",
+            "name": "factor",
+            "value": 1.1
         }
     ]
 }
