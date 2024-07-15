@@ -6,8 +6,8 @@
 (6/24/24) - Looked into the Frictionless python library and created a Frictionless demo outside of an RO-Crate  
 (6/25/24) - Began to develop an RO-Crate with Frictionless  
 (6/26/24) - Wrote abstract proposal and presented Frictionless demo at PF meeting  
-(6/28/24) - Incorporated column header data and ran benchmark simulation with a visualizer
-(7/1-5/24) - Researched tabular data and schema
-(7/8/24) - Created the SURF_main directory to centralize working example
-(7/9/24) - Researched ways to solve [Include parameters in ro-crate-metadata.json file](https://github.com/usnistgov/surf-2024-austyn-nguyen/issues/14)
-(7/10-11/24) - Researched tabular data
+(6/28/24) - Incorporated column header data and ran benchmark simulation with a visualizer  
+(7/1-5/24) - Researched tabular data and schema  
+(7/8/24) - Created the SURF_main directory to centralize working example  
+(7/9/24) - Researched ways to solve [Include parameters in ro-crate-metadata.json file](https://github.com/usnistgov/surf-2024-austyn-nguyen/issues/14)  
+(7/10-11/24) - Researched tabular data  
