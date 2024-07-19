@@ -21,6 +21,7 @@
         ];
       };
       pypkgs-build-requirements = {
+        petl = [ "setuptools" ];
         # attrs = [ "hatchling" ];
         # urllib3 = [ "hatchling" ];
         # hbreader = [ "setuptools" ];

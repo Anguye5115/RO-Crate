@@ -1,0 +1,52 @@
+---
+crate-directory: crate1
+title: "Phase Field Simulation: Homogeneous Nucleation Benchmark No.8a"
+description: "An example of generating an ro-crate from a PFHub result, for now this is only focused on the computational platform, environment and implementation"
+authors:
+  - name: Daniel Wheeler
+    orcid: https://orcid.org/0000-0002-2653-7418
+    affiliation: NIST
+  - name: Austyn Nguyen
+    orcid: https://orcid.org/0009-0008-2880-8403
+    affiliation: NIST
+license:
+  identifier: "https://spdx.org/licenses/NIST-PD.html"
+  name: "NIST-PD"
+  description: "NIST Public Domain Notice"
+  url: https://github.com/tcheneau/simpleRPL/blob/e645e69e38dd4e3ccfeceb2db8cba05b7c2e0cd3/LICENSE.txt
+tabular_files:
+  - path: "data/stats.txt"
+    encodingFormat: "text/tab-separated-values"
+    description: "Solid Fraction and Free Energy vs. Time"
+    name: stats.txt
+    columns:
+      - identifier: time
+        description: "Simulation time"
+        unit: s
+        type: float
+      - identifier: fraction
+        description: "Solid fraction"
+        unit: null
+        type: float
+      - identifier: energy
+        description: "Free energy"
+        type: float
+        unit: J
+files:
+  - path: "../benchmark8/params8a.yaml"
+    encodingFormat: "text/yaml"
+    name: params8a.yaml
+    description: "Parameter file require to run simulation"
+workflow:
+  identifier: "../benchmark8/benchmark8a.py"
+  programmingLanguage: "Python 3.10"
+  dateCreated: "2017-01-09"
+  name: benchmark8a.py
+  creator: https://orcid.org/0000-0002-2653-7418
+    
+    
+  
+
+  
+
+  
