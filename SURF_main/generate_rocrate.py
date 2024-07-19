@@ -145,18 +145,18 @@ def add_workflow(workflow, crate):
     return crate
 
     
-def debug(x):
-    print('debug:', x)
-    import ipdb; ipdb.set_trace();
-    # x.root_dataset["conformsTo"] = [x.root_dataset["conformsTo"], {"@id": 'test'}]
-    # # set_root("conformsTo", 'testing', x)
-    return x
+# def debug(x):
+#     print('debug:', x)
+#     import ipdb; ipdb.set_trace();
+#     # x.root_dataset["conformsTo"] = [x.root_dataset["conformsTo"], {"@id": 'test'}]
+#     # # set_root("conformsTo", 'testing', x)
+#     return x
     
 def generate(data):
 
     return pipe(
         ROCrate(),
-        debug,
+        # debug,
         set_attr(key='description', value=data['description']),
         set_root('title', data['title']),
         add_authors(data['authors']),
