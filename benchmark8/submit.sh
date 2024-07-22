@@ -18,6 +18,7 @@ export VECLIB_MAXIMUM_THREADS=$omp_threads
 export NUMEXPR_NUM_THREADS=$omp_threads
 
 
-echo "hello world" > blah.txt
-#micromamba activate bm8-env
-#python benchmark8a.py params8a.yaml
+micromamba activate  bm8-env
+python benchmark8a.py params8a.yaml
+
+
