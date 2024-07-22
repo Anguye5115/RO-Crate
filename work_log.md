@@ -11,6 +11,6 @@
 (7/8/24) - Created the SURF_main directory to centralize working example  
 (7/9/24) - Researched ways to solve [Include parameters in ro-crate-metadata.json file](https://github.com/usnistgov/surf-2024-austyn-nguyen/issues/14)  
 (7/10-11/24) - Researched tabular data  
-(7/15/24) - Benchmark 8 updated into main notebook file
-(7/18/24) - Automated system software metadata
-(7/19/24) - Ran benchmark jobs through the cluster
+(7/15/24) - Benchmark 8 updated into main notebook file  
+(7/18/24) - Automated system software metadata  
+(7/19/24) - Ran benchmark jobs through the cluster  
