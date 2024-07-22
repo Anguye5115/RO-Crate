@@ -13,3 +13,4 @@
 (7/10-11/24) - Researched tabular data  
 (7/15/24) - Benchmark 8 updated into main notebook file
 (7/18/24) - Automated system software metadata
+(7/19/24) - Ran benchmark jobs through the cluster
