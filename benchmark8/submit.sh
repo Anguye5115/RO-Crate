@@ -5,7 +5,7 @@
 #SBATCH --ntasks=1                      # -n, 64 MPI ranks per Opteron machine
 #SBATCH --cpus-per-task=1               # threads per MPI rank
 #SBATCH --job-name=benchmark8 # -J, for your records
-#SBATCH --chdir=/working/wd15/surf-2024-austyn-nguyen/benchmark8/cluster   # -D, full path to an existing directory
+#SBATCH --chdir=/working/aan2/surf-2024-austyn-nguyen/benchmark8   # -D, full path to an existing directory
 #SBATCH --qos=test
 #SBATCH --mem=0G
 #SBATCH --output=slurm-%j.out
@@ -18,7 +18,6 @@ export VECLIB_MAXIMUM_THREADS=$omp_threads
 export NUMEXPR_NUM_THREADS=$omp_threads
 
 
-micromamba activate cluster
-python benchmark8a.py params8a.yaml
-
-
+echo "hello world" > blah.txt
+#micromamba activate bm8-env
+#python benchmark8a.py params8a.yaml
