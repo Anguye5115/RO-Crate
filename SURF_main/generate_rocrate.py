@@ -10,7 +10,11 @@ from toolz.curried import curry, pipe
 from toolz.curried import map as fmap
 
 
-# See this: https://www.researchobject.org/workflow-run-crate/profiles/process_run_crate/
+# Helpful webpages:
+#   - https://www.researchobject.org/workflow-run-crate/profiles/process_run_crate/
+#   - https://biotools.readthedocs.io/en/latest/curators_guide.html#tool-type
+#   - https://github.com/ResearchObject/ro-terms/tree/master/workflow-run
+
 
 def read_yaml(filepath):
     with open(filepath, 'r') as file:
@@ -74,14 +78,15 @@ def add_license(license, crate):
 
 @curry
 def add_files(files, crate):
-    list(fmap(lambda x: crate.add_file(
+    return list(fmap(lambda x: crate.add_file(
         x["path"],
+        fetch_remote=x["download"],        
         properties=dict(
             name=x["name"],
             encodingFormat=x["encodingFormat"],
-            description=x["description"]
+            description=x["description"],
+            variableMeasured=add_columns(x.get("columns", []), x["path"], crate)
         )), files))
-    return crate
 
 
 @curry
@@ -92,7 +97,8 @@ def add_column(path, crate, column):
         "@type": "PropertyValue",
         "unitCode": column["unit"],
         "name": column["identifier"],
-        "description": column["description"]
+        "description": column["description"],
+        "value": column.get("value", None)
     })
     return {"@id": identifier}
     
@@ -108,22 +114,31 @@ def add_columns(columns, path, crate):
                 
 @curry
 def add_tabular_file(file, crate):
-    crate.add_file(
-        file["path"],
-        properties={
-            "@type": ["File", "Dataset"],
-            "description": file["description"],
-            "encodingFormat": file["encodingFormat"],
-            "variableMeasured": add_columns(file.get("columns", []), file["path"], crate),
-        }
-    )
-    return crate
-
+    if file['type'] == "directory":
+        return crate.add_directory(
+            file["path"],
+            properties={
+                "description": file["description"],
+                "encodingFormat": file["encodingFormat"],
+                "name": file["name"],
+                "variableMeasured": add_columns(file.get("columns", []), file["path"], crate),
+            }
+        )
+    else:
+        return  crate.add_file(
+            file["path"],
+            properties={
+                "@type": ["File", "Dataset"],
+                "description": file["description"],
+                "encodingFormat": file["encodingFormat"],
+                "name": file["name"],
+                "variableMeasured": add_columns(file.get("columns", []), file["path"], crate),
+            }
+        )
 
 @curry
 def add_tabular_files(files, crate):
-    list(fmap(add_tabular_file(crate=crate), files))
-    return crate
+    return list(fmap(add_tabular_file(crate=crate), files))
 
 
 @curry
@@ -133,37 +148,108 @@ def set_root(key, value, crate):
 
 
 @curry
-def add_workflow(workflow, crate):
-    pipe(
-        crate.add_workflow(workflow["identifier"]),
-        set_attr(key="programmingLanguage", value=workflow["programmingLanguage"]),
-        set_attr(key="license", value=crate.license),        
-        set_value(key="dateCreated", value=workflow["dateCreated"]),
-        set_value(key="name", value=workflow["name"]),
-        set_value(key="creator", value=[{"@id": workflow["creator"]}])
-    )
+def add_dependency(crate, dependency):
+    return crate.add(Entity(
+        crate,
+        identifier=dependency["identifier"],
+        properties={
+            "@type": "SoftwareApplication",
+            "description": dependency["description"],
+            "name": dependency["name"],
+            "url": dependency["url"],
+            "version": dependency["version"]
+         }
+    ))
+    
+
+@curry
+def add_implementation(implementation, dependencies, crate):
+    implementation_ = crate.add(Entity(
+        crate,
+        identifier=implementation["identifier"],
+        properties={
+            "@type": "SoftwareApplication",
+            "conformsTo": "https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE",
+            "description": implementation["description"],
+            "name": implementation["name"],
+            "applicationCategory": implementation["applicationCategory"],
+            "url": implementation["codeRepository"],
+            "codeRepository": implementation["codeRepository"],
+            "programmingLanguage": implementation["programmingLanguage"]
+         }
+    ))
+
+    implementation_["softwareRequirements"] = list(fmap(add_dependency(crate), dependencies))
+    
+    return implementation_
+
+
+@curry
+def add_workflow(workflow, inputs, outputs, implementation, dependencies, crate):
+    workflow_ = crate.add(Entity(
+        crate,
+        identifier="#workflow",
+        properties={
+            "@type": "CreateAction",
+            "name": workflow["name"],
+            "description": workflow["description"],
+            "endTime": workflow["dateCreated"]
+        }
+    ))
+    inputs_ = add_files(inputs, crate)
+    outputs_ = add_tabular_files(outputs, crate)
+
+    workflow_["result"] = outputs_
+    workflow_["object"] = inputs_
+    workflow_["agent"] = {"@id": workflow["agent"]}
+
+    workflow_["instrument"] = add_implementation(implementation, dependencies, crate)
+
+    
+    return set_root("mentions", workflow_, crate)
+
+
+
+@curry
+def add_contexts(contexts, crate):
+    list(fmap(
+        lambda x: crate.metadata.extra_contexts.append(x),
+        contexts
+    ))
     return crate
 
-    
+
+def make_run_crate(crate):
+    id_ = "https://w3id.org/ro/wfrun/process/0.4"
+    set_root("conformsTo", {"@id": id_}, crate)
+    crate.add(Entity(
+        crate,
+        identifier=id_,
+        properties={
+            "@type": "CreativeWork",
+            "name": "Process Run Crate",
+            "version": "0.1"
+        }
+    ))
+    return crate
+
+
 def debug(x):
     print('debug:', x)
-    import ipdb; ipdb.set_trace();
-    # x.root_dataset["conformsTo"] = [x.root_dataset["conformsTo"], {"@id": 'test'}]
-    # # set_root("conformsTo", 'testing', x)
+#    import ipdb; ipdb.set_trace();
     return x
+
     
 def generate(data):
-
     return pipe(
         ROCrate(),
-        debug,
+        add_contexts(data['contexts']),
         set_attr(key='description', value=data['description']),
+        make_run_crate,
         set_root('title', data['title']),
         add_authors(data['authors']),
         add_license(data['license']),
-        add_files(data['files']),
-        add_tabular_files(data['tabular_files']),
-        add_workflow(data['workflow']),
+        add_workflow(data['workflow'], data['inputs'], data['outputs'], data['implementation'], data['dependencies']),
         lambda x: x.write(data["crate-directory"])
     )
 
