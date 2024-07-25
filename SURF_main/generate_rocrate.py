@@ -239,7 +239,6 @@ def debug(x):
 #    import ipdb; ipdb.set_trace();
     return x
 
-    
 def generate(data):
     return pipe(
         ROCrate(),
