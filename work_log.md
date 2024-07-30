@@ -15,3 +15,5 @@
 (7/18/24) - Automated system software metadata  
 (7/19/24) - Ran benchmark jobs through the cluster  
 (7/22/24) - Created visuals for the 3 benchmark simulations  
+(7/23-26/24) - Prepared SURF presentation  
+(7/29/24) - Present draft of presentation to John and revised powerpoint  
