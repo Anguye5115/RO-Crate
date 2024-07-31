@@ -127,11 +127,14 @@ def add_tabular_file(file, crate):
     else:
         return  crate.add_file(
             file["path"],
+            fetch_remote=file.get("download", False),
             properties={
                 "@type": ["File", "Dataset"],
                 "description": file["description"],
                 "encodingFormat": file["encodingFormat"],
                 "name": file["name"],
+                "url": file.get("url", None),
+                "keywords": file.get("keywords", None),
                 "variableMeasured": add_columns(file.get("columns", []), file["path"], crate),
             }
         )
@@ -233,6 +236,10 @@ def make_run_crate(crate):
     ))
     return crate
 
+@curry
+def add_spec(spec, crate):
+    spec_ = add_tabular_file(spec, crate)
+    return crate
 
 def debug(x):
     print('debug:', x)
@@ -249,6 +256,7 @@ def generate(data):
         add_authors(data['authors']),
         add_license(data['license']),
         add_workflow(data['workflow'], data['inputs'], data['outputs'], data['implementation'], data['dependencies']),
+        add_spec(data["specification"]),
         lambda x: x.write(data["crate-directory"])
     )
 

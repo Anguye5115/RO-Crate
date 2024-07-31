@@ -2,6 +2,40 @@
 crate-directory: crate1
 title: "Phase Field Simulation: Homogeneous Nucleation Benchmark No.8a"
 description: "An example of generating an ro-crate from a PFHub result, for now this is only focused on the computational platform, environment and implementation"
+specification:
+  identifier: https://raw.githubusercontent.com/usnistgov/pfhub/master/benchmarks/benchmark8.ipynb
+  description: >-
+    Phase field modeling of nucleation has a long history and is
+    covered in a number of reviews (Gránásy 2002, Castro 2003, Simmons
+    2004, Gránásy 2007, Warren 2009, Heo 2014, Gránásy 2019). The
+    problem formulation of crystallization of an ideal pure liquid
+    cooled below its melting point starts with homogeneous nucleation,
+    a process in which the internal fluctuations of the undercooled
+    liquid lead to the formation of crystal-like seeds able to grow to
+    macroscopic sizes. The nucleation can be assisted by the presence
+    of surfaces (container walls, foreign particles, etc.), in which
+    case the process is termed heterogeneous nucleation. We note that
+    homogeneous nucleation is an idealized formulation, and it is
+    unlikely homogeneous nucleation occurs, due to impurities present
+    in experimental apparatus. However, creating benchmark problems
+    for homogeneous nucleation is still needed since the focus in
+    nucleation research often lies on the underlying homogeneous
+    nucleation, as it is the basis for advancing theoretical
+    approaches to the much more complex phenomena governing
+    heterogeneous nucleation. This benchmark (benchmark 8) targets
+    homogeneous nucleation while benchmark 9 targets heterogeneous
+    nucleation.
+  keywords:
+    - phase-field
+    - nucleation
+    - benchmark
+    - homogeneous-nucleation
+  name: homogeneous nucleation specification
+  url: https://pages.nist.gov/pfhub/benchmarks/benchmark8.ipynb/index.html
+  encodingFormat: application/x-ipynb+json
+  type: file
+  path: https://raw.githubusercontent.com/usnistgov/pfhub/master/benchmarks/benchmark8.ipynb
+  download: truex
 contexts:
   - "https://w3id.org/ro/terms/workflow-run/context"
 authors:
@@ -27,19 +61,22 @@ outputs:
         description: "Simulation time"
         unit: s
         type: float
+        value: "column 1"
       - identifier: fraction
         description: "Solid fraction"
         unit: null
         type: float
+        value: "column 2"
       - identifier: energy
         description: "Free energy"
         type: float
         unit: J
+        value: "column 3"
   - path: "./data/fields"
     type: directory
     encodingFormat: application/tar+gzip
     description: "The phase field variable at various times during the simulation"
-    name: "t=X.Y.tar.gz"
+    name: "./fields"
     columns:
       - identifier: phaseField
         description: "Phase field variable"
@@ -53,10 +90,30 @@ inputs:
     download: false
     columns:
       - identifier: factor
-        description: "Fraction of equilibrium radius"
+        description: "fraction of equilibrium radius"
         unit: null
         type: float
         value: 1.1
+      - identifier: Lx
+        description: "length of Mesh"
+        unit: null
+        type: float
+        value: 100.0
+      - identifier: Ly
+        description: "height of mesh"
+        unit: null
+        type: float
+        value: 100.0
+      - identifier: dx
+        description: "cell spacing"
+        unit: null
+        type: float
+        value: 100.0
+      - identifier: dt
+        description: "timestep"
+        unit: null
+        type: float
+        value: 0.01
   - path: "https://github.com/wd15/phase-field-nucleation-benchmark/blob/master/fipy/benchmark8a.py"
     download: true
     encodingFormat: text/x-script.python
