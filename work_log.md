@@ -20,3 +20,4 @@
 (7/29/24) - Present draft of presentation to John and revised powerpoint  
 (7/31/24) - Present draft of presentation to Trevor and revised powerpoint  
 (8/1/24) - Looked into using Zenodo for crate output  
+(8/13/24) - Presented research findings
